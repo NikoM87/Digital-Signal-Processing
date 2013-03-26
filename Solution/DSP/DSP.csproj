@@ -40,9 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Correlation.cs" />
+    <Compile Include="Convolution.cs" />
+    <Compile Include="RemoveConstant.cs" />
+    <Compile Include="SignalRandomLoader.cs" />
     <Compile Include="Signal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalLoader.cs" />
+    <Compile Include="Statictics\Statictics.cs" />
+    <Compile Include="Transformation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

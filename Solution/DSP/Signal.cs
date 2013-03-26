@@ -35,5 +35,20 @@ namespace DSP
         {
             _points.Add( value );
         }
+
+
+        public Signal Copy()
+        {
+            Signal signal = new Signal();
+            signal.Df = Df;
+
+            foreach ( double d in ToArray )
+            {
+                signal.AddPoint( d );
+            }
+
+
+            return signal;
+        }
     }
 }
