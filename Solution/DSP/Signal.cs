@@ -41,11 +41,7 @@ namespace DSP
         {
             Signal signal = new Signal();
             signal.Df = Df;
-
-            foreach ( double d in ToArray )
-            {
-                signal.AddPoint( d );
-            }
+            signal._points.AddRange( _points );
 
 
             return signal;

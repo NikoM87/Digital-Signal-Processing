@@ -46,6 +46,7 @@
     <Compile Include="Signal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignalLoader.cs" />
+    <Compile Include="SignalSaver.cs" />
     <Compile Include="Statictics\Statictics.cs" />
     <Compile Include="Transformation.cs" />
   </ItemGroup>
