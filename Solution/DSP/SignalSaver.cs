@@ -11,22 +11,35 @@ namespace DSP
         public const UInt16 VersionFormatFile = 1;
 
         public const UInt16 ChankSignal = 0x0001;
+        private BinaryWriter _writer;
 
 
         public void Save( Stream stream, Signal signal )
         {
-            var writer = new BinaryWriter( stream );
+            _writer = new BinaryWriter( stream );
 
-            writer.Write( SignatureFile );
-            writer.Write( (UInt16) 0000 ); // резерв
-            writer.Write( VersionFormatFile );
+            SaveHeader();
 
             Stream signalChank = SaveSignal( signal );
-            writer.Write( ChankSignal );
-            writer.Write( signalChank.Length );
-            signalChank.CopyTo( writer.BaseStream );
+            SaveChank( signalChank );
 
-            writer.Flush();
+            _writer.Flush();
+        }
+
+
+        private void SaveChank( Stream signalChank )
+        {
+            _writer.Write( ChankSignal );
+            _writer.Write( signalChank.Length );
+            signalChank.CopyTo( _writer.BaseStream );
+        }
+
+
+        private void SaveHeader()
+        {
+            _writer.Write( SignatureFile );
+            _writer.Write( (UInt16) 0000 ); // резерв
+            _writer.Write( VersionFormatFile );
         }
 
 

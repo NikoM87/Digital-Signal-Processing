@@ -5,12 +5,12 @@ namespace DSP
 {
     public class SignalLoader
     {
-        private readonly BinaryReader _reader;
+        protected readonly BinaryReader Reader;
 
 
         public SignalLoader( Stream stream )
         {
-            _reader = new BinaryReader( stream );
+            Reader = new BinaryReader( stream );
         }
 
 
@@ -22,9 +22,11 @@ namespace DSP
         public virtual Signal Load()
         {
             LoadHeader();
-            LoadSignalChankHeader();
 
-            Signal signal = LoadSignal();
+            ChankReader chankReader = new SignalChank( Reader );
+            chankReader.Read();
+
+            Signal signal = ( (SignalChank) chankReader ).Signal;
 
             return signal;
         }
@@ -32,47 +34,18 @@ namespace DSP
 
         public void LoadHeader()
         {
-            uint signature = _reader.ReadUInt32();
+            uint signature = Reader.ReadUInt32();
             if ( signature != SignalSaver.SignatureFile )
             {
                 throw new SignatureException( "Файл с неизвестной сигнатурой" );
             }
-            _reader.ReadUInt16(); // резерв
+            Reader.ReadUInt16(); // резерв
 
-            ushort versionFile = _reader.ReadUInt16();
+            ushort versionFile = Reader.ReadUInt16();
             if ( versionFile != SignalSaver.VersionFormatFile )
             {
                 throw new FileVesionException( "Неизвестная версия файла" );
             }
-        }
-
-
-        public Signal LoadSignal()
-        {
-            Signal signal = new Signal();
-            signal.Df = _reader.ReadDouble();
-
-            int countPoints = _reader.ReadInt32();
-            signal.Points.Capacity = countPoints;
-
-            for ( int i = 0; i < countPoints; i++ )
-            {
-                signal.AddPoint( _reader.ReadDouble() );
-            }
-
-            return signal;
-        }
-
-
-        public void LoadSignalChankHeader()
-        {
-            ushort chankCode = _reader.ReadUInt16();
-            if ( chankCode != SignalSaver.ChankSignal )
-            {
-                throw new UnknownChankException( "Не известная структура данных" );
-            }
-
-            _reader.ReadUInt64(); // размер данных
         }
     }
 }
