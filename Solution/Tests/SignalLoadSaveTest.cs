@@ -4,6 +4,7 @@ using DSP;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+
 namespace Tests
 {
     [TestClass]
@@ -24,7 +25,7 @@ namespace Tests
             saver.Save( streams, signal );
 
             streams.Position = 0;
-            SignalLoader loader = new SignalLoader(streams);
+            SignalLoader loader = new SignalLoader( streams );
             Signal loadedSignal = loader.Load();
 
             Assert.AreEqual( 0.045, loadedSignal.Df );

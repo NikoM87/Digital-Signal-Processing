@@ -11,8 +11,8 @@ namespace Tests
     [TestClass]
     public class SignalLoaderTest
     {
-        private readonly SignalLoader _loader;
         private readonly BinaryWriter _binaryWriter;
+        private readonly SignalLoader _loader;
 
 
         public SignalLoaderTest()
@@ -58,10 +58,11 @@ namespace Tests
             }
         }
 
+
         [TestMethod]
         public void LoadUnknownChunkTrowUnknownChankException()
         {
-            _binaryWriter.Write( (UInt32)0xFF );
+            _binaryWriter.Write( (UInt32) 0xFF );
             _binaryWriter.BaseStream.Position = 0;
 
             try
@@ -69,7 +70,9 @@ namespace Tests
                 _loader.LoadSignalChankHeader();
                 Assert.Fail();
             }
-            catch( UnknownChankException ){}
+            catch ( UnknownChankException )
+            {
+            }
         }
     }
 }

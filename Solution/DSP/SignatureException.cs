@@ -8,7 +8,6 @@ namespace DSP
         public SignatureException( string text )
             : base( text )
         {
-            
         }
     }
 }

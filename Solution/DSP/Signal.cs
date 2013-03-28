@@ -6,6 +6,15 @@ namespace DSP
     public class Signal
     {
         private readonly List<double> _points;
+
+
+        public Signal()
+        {
+            Df = 0;
+            _points = new List<double>();
+        }
+
+
         public double Df { get; set; }
 
         public List<double> Points
@@ -24,13 +33,6 @@ namespace DSP
         }
 
 
-        public Signal()
-        {
-            Df = 0;
-            _points = new List<double>();
-        }
-
-
         public void AddPoint( double value )
         {
             _points.Add( value );
@@ -42,7 +44,6 @@ namespace DSP
             Signal signal = new Signal();
             signal.Df = Df;
             signal._points.AddRange( _points );
-
 
             return signal;
         }

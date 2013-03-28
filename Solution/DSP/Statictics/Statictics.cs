@@ -6,30 +6,32 @@ namespace DSP.Statictics
 {
     public class Statictics
     {
-        public static double Correlation( double[] x1, double[] x2)
+        public static double Correlation( double[] x1, double[] x2 )
         {
             return Correlation( 0, x1, x2 );
         }
 
 
-        public static double EdgeEffect( int j, int count, double r12)
+        public static double EdgeEffect( int j, int count, double r12 )
         {
             return j * r12 / count;
         }
+
 
         public static double Correlation( int delay, double[] x1, double[] x2 )
         {
             int length = Math.Min( x1.Length, x2.Length - delay );
 
             double r = 0;
-            for ( int i = 0; i < length ; i++ )
+            for ( int i = 0; i < length; i++ )
             {
                 r += x1[i] * x2[i + delay];
             }
             r /= length + delay;
 
-            return r ;
+            return r;
         }
+
 
         public static double CrossCorrelation( int delay, double[] x1, double[] x2 )
         {

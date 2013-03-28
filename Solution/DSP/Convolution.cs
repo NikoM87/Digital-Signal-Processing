@@ -12,7 +12,7 @@
             {
                 for ( int j = 0; j < n; j++ )
                 {
-                    res[i] += h[j]* x[n + i - j] ;
+                    res[i] += h[j] * x[n + i - j];
                 }
             }
             return res;

@@ -1,6 +1,6 @@
 ﻿namespace DSP
 {
-    public class RemoveConstant: Transformation
+    public class RemoveConstant : Transformation
     {
         public override Signal Execute( Signal signal )
         {
@@ -10,7 +10,7 @@
             Signal meanSignal = new Signal();
             for ( int i = 0; i < array.Length; i++ )
             {
-               meanSignal.AddPoint( array[i] - mean); 
+                meanSignal.AddPoint( array[i] - mean );
             }
 
             return meanSignal;

@@ -7,9 +7,10 @@ namespace DSP
     {
         private readonly BinaryReader _reader;
 
+
         public SignalLoader( Stream stream )
         {
-             _reader = new BinaryReader( stream );
+            _reader = new BinaryReader( stream );
         }
 
 
@@ -23,7 +24,7 @@ namespace DSP
             LoadHeader();
             LoadSignalChankHeader();
 
-            Signal signal = LoadSignal( );
+            Signal signal = LoadSignal();
 
             return signal;
         }
@@ -48,8 +49,6 @@ namespace DSP
 
         public Signal LoadSignal()
         {
-            
-
             Signal signal = new Signal();
             signal.Df = _reader.ReadDouble();
 
