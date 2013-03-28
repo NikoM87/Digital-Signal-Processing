@@ -7,6 +7,7 @@ namespace DSP
     public class SignalSaver
     {
         public const UInt32 SignatureFile = 0x01020304;
+
         public const UInt16 VersionFormatFile = 1;
 
         public const UInt16 ChankSignal = 0x0001;
@@ -41,7 +42,6 @@ namespace DSP
             {
                 writer.Write( point );
             }
-
 
             stream.Position = 0;
 

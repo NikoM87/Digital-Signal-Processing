@@ -6,7 +6,7 @@ namespace DSP
 {
     public class SignalRandomLoader : SignalLoader
     {
-        public override Signal Load( Stream stream )
+        public override Signal Load( )
         {
             Signal signal = new Signal();
             signal.Df = 0.1;

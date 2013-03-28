@@ -10,7 +10,7 @@ namespace ApplicationDSP
     {
         private readonly SignalController _signalController;
 
-        private Signal signal;
+        private Signal _signal;
         public FormMain()
         {
             InitializeComponent();
@@ -24,16 +24,16 @@ namespace ApplicationDSP
 
         private void Button1Click( object sender, EventArgs e )
         {
-            signal = _signalRandomLoader.Load( null );
+            _signal = _signalRandomLoader.Load( );
 
-            _signalController.UpdateSeries( signal, chart1.Series[0].Points );            
+            _signalController.UpdateSeries( _signal, chart1.Series[0].Points );            
 
            
         }
 
-        private void checkedListBox1_SelectedIndexChanged( object sender, EventArgs e )
+        private void CheckedListBox1SelectedIndexChanged( object sender, EventArgs e )
         {
-            Signal tranformSignal = signal.Copy();
+            Signal tranformSignal = _signal.Copy();
             foreach ( var item in checkedListBox1.CheckedItems )
             {
                 tranformSignal = ( (Transformation)item ).Execute( tranformSignal );   
