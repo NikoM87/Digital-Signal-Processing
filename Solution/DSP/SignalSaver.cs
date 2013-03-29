@@ -11,13 +11,17 @@ namespace DSP
         public const UInt16 VersionFormatFile = 1;
 
         public const UInt16 ChankSignal = 0x0001;
-        private BinaryWriter _writer;
+        private readonly BinaryWriter _writer;
 
 
-        public void Save( Stream stream, Signal signal )
+        public SignalSaver( Stream stream )
         {
             _writer = new BinaryWriter( stream );
+        }
 
+
+        public void Save( Signal signal )
+        {
             SaveHeader();
 
             Stream signalChank = SaveSignal( signal );

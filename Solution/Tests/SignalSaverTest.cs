@@ -14,8 +14,8 @@ namespace Tests
         [TestMethod]
         public void TestSignalSaver()
         {
-            SignalSaver saver = new SignalSaver();
             Stream stream = new MemoryStream();
+            SignalSaver saver = new SignalSaver( stream );
 
             Signal signal = new Signal();
             signal.Df = 0.045;
@@ -23,7 +23,7 @@ namespace Tests
             signal.AddPoint( 3.4 );
             signal.AddPoint( 5.6 );
 
-            saver.Save( stream, signal );
+            saver.Save( signal );
 
             stream.Position = 0;
             BinaryReader reader = new BinaryReader( stream );

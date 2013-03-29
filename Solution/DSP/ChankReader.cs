@@ -3,7 +3,7 @@
 
 namespace DSP
 {
-    public class ChankReader
+    public abstract class ChankReader
     {
         protected readonly BinaryReader Reader;
         public uint Id;
@@ -14,10 +14,14 @@ namespace DSP
         public ChankReader( BinaryReader reader )
         {
             Reader = reader;
+            LoadHeader();
         }
 
 
-        public virtual void Read()
+        public abstract object Read();
+
+
+        private void LoadHeader()
         {
             Id = Reader.ReadUInt16();
             Size = Reader.ReadUInt64();

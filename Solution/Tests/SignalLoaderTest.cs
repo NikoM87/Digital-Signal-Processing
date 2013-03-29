@@ -57,21 +57,5 @@ namespace Tests
             {
             }
         }
-
-
-        [TestMethod]
-        public void LoadChunkHeader()
-        {
-            _binaryWriter.Write( (UInt16) 12345 );
-            _binaryWriter.Write( (UInt64) 987654321 );
-            _binaryWriter.BaseStream.Position = 0;
-
-            BinaryReader reader = new BinaryReader( _binaryWriter.BaseStream );
-            ChankReader chank = new ChankReader( reader );
-            chank.Read();
-
-            Assert.AreEqual( (UInt16) 12345, chank.Id );
-            Assert.AreEqual( (UInt64) 987654321, chank.Size );
-        }
     }
 }

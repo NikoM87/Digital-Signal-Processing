@@ -21,8 +21,8 @@ namespace Tests
             signal.AddPoint( 3.4 );
             signal.AddPoint( 5.6 );
 
-            SignalSaver saver = new SignalSaver();
-            saver.Save( streams, signal );
+            SignalSaver saver = new SignalSaver( streams );
+            saver.Save( signal );
 
             streams.Position = 0;
             SignalLoader loader = new SignalLoader( streams );
