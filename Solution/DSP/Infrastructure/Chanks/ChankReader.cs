@@ -3,29 +3,27 @@ using System.IO;
 
 namespace DSP.Infrastructure.Chanks
 {
-    public abstract class ChankReader
+    public abstract class ChankReader : Chank
     {
         protected readonly BinaryReader Reader;
-        public uint Id;
-        public ulong Size;
-        private long _position;
 
 
-        public ChankReader( BinaryReader reader )
+        protected ChankReader( BinaryReader reader )
+            : base( reader.BaseStream )
         {
             Reader = reader;
             LoadHeader();
         }
 
 
-        public abstract object Read();
+        public abstract object ReadData();
 
 
         private void LoadHeader()
         {
             Id = Reader.ReadUInt16();
-            Size = Reader.ReadUInt64();
-            _position = Reader.BaseStream.Position;
+            Size = Reader.ReadInt64();
+            Position = ChankStream.Position;
         }
     }
 }

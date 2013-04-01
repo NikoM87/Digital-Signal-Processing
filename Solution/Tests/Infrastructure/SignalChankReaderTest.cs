@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 
-using DSP.Infrastructure;
 using DSP.Infrastructure.Chanks;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -25,7 +24,8 @@ namespace Tests.Infrastructure
             ChankReader chank = new SignalChankReader( reader );
 
             Assert.AreEqual( (UInt16) 1, chank.Id );
-            Assert.AreEqual( (UInt64) 16, chank.Size );
+            Assert.AreEqual( 16, chank.Size );
+            Assert.AreEqual( 10, chank.Position );
         }
     }
 }

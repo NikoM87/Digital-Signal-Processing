@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 
 using DSP;
@@ -33,7 +32,7 @@ namespace Tests.Infrastructure
             Assert.AreEqual( 0, reader.ReadUInt16() );
             Assert.AreEqual( SignalSaver.VersionFormatFile, reader.ReadUInt16() );
             Assert.AreEqual( SignalSaver.ChankSignal, reader.ReadUInt16() );
-            Assert.AreEqual( (UInt64) 36, reader.ReadUInt64() );
+            Assert.AreEqual( 36, reader.ReadInt64() );
             Assert.AreEqual( 0.045, reader.ReadDouble() );
             Assert.AreEqual( 3, reader.ReadInt32() );
             Assert.AreEqual( 1.2, reader.ReadDouble() );

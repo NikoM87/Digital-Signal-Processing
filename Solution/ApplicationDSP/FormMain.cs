@@ -23,7 +23,7 @@ namespace ApplicationDSP
         }
 
 
-        private void Button1Click( object sender, EventArgs e )
+        private void ButtonLoadClick( object sender, EventArgs e )
         {
             _signal = _signalRandomLoader.Load();
 

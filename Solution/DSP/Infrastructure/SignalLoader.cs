@@ -7,12 +7,12 @@ namespace DSP.Infrastructure
 {
     public class SignalLoader
     {
-        protected readonly BinaryReader Reader;
+        private readonly BinaryReader _reader;
 
 
         public SignalLoader( Stream stream )
         {
-            Reader = new BinaryReader( stream );
+            _reader = new BinaryReader( stream );
         }
 
 
@@ -25,8 +25,8 @@ namespace DSP.Infrastructure
         {
             LoadHeader();
 
-            ChankReader chankReader = new SignalChankReader( Reader );
-            Signal signal = (Signal) chankReader.Read();
+            ChankReader chankReader = new SignalChankReader( _reader );
+            Signal signal = (Signal) chankReader.ReadData();
 
             return signal;
         }
@@ -34,14 +34,14 @@ namespace DSP.Infrastructure
 
         public void LoadHeader()
         {
-            uint signature = Reader.ReadUInt32();
+            uint signature = _reader.ReadUInt32();
             if ( signature != SignalSaver.SignatureFile )
             {
                 throw new SignatureException( "Файл с неизвестной сигнатурой" );
             }
-            Reader.ReadUInt16(); // резерв
+            _reader.ReadUInt16(); // резерв
 
-            ushort versionFile = Reader.ReadUInt16();
+            ushort versionFile = _reader.ReadUInt16();
             if ( versionFile != SignalSaver.VersionFormatFile )
             {
                 throw new FileVesionException( "Неизвестная версия файла" );

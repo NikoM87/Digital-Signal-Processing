@@ -11,7 +11,7 @@ namespace DSP.Infrastructure.Chanks
         }
 
 
-        public override object Read()
+        public override object ReadData()
         {
             if ( Id != SignalSaver.ChankSignal )
             {

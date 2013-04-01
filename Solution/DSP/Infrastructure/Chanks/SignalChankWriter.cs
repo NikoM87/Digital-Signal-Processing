@@ -3,44 +3,24 @@ using System.IO;
 
 namespace DSP.Infrastructure.Chanks
 {
-    public class SignalChankWriter
+    public class SignalChankWriter : ChankWriter
     {
-        private readonly BinaryWriter _writer;
-
-
-        public SignalChankWriter( BinaryWriter writer  )
+        public SignalChankWriter( BinaryWriter writer )
+            : base( writer )
         {
-            _writer = writer;
+            Id = SignalSaver.ChankSignal;
         }
 
 
-        public void SaveChank( Signal signal )
+        protected override void WriteData( object o )
         {
-            _writer.Write( SignalSaver.ChankSignal );
-          
-            Stream signalChank = SaveSignal( signal );
-
-            _writer.Write( signalChank.Length );
-            signalChank.CopyTo( _writer.BaseStream );
-        }
-
-
-        private Stream SaveSignal( Signal signal )
-        {
-            var stream = new MemoryStream();
-
-            var writer = new BinaryWriter( stream );
-
-            writer.Write( signal.Df );
-            writer.Write( signal.Length );
+            Signal signal = (Signal) o;
+            Writer.Write( signal.Df );
+            Writer.Write( signal.Length );
             foreach ( double point in signal.Points )
             {
-                writer.Write( point );
+                Writer.Write( point );
             }
-
-            stream.Position = 0;
-
-            return stream;
         }
     }
 }

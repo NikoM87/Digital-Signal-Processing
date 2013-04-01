@@ -15,19 +15,19 @@ namespace DSP.Infrastructure
         public const UInt16 ChankSignal = 0x0001;
         private readonly BinaryWriter _writer;
 
+
         public SignalSaver( Stream stream )
         {
             _writer = new BinaryWriter( stream );
- }
+        }
 
 
         public void Save( Signal signal )
         {
             SaveHeader();
 
-           
-            SignalChankWriter chankWriter = new SignalChankWriter( _writer );
-            chankWriter.SaveChank( signal );
+            ChankWriter chankWriter = new SignalChankWriter( _writer );
+            chankWriter.Write( signal );
 
             _writer.Flush();
         }

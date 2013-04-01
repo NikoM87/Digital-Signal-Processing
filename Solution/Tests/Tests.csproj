@@ -49,10 +49,12 @@
     <Compile Include="ConvolutionTest.cs" />
     <Compile Include="CorrelationTest.cs" />
     <Compile Include="Infrastructure\SignalChankReaderTest.cs" />
+    <Compile Include="Infrastructure\SignalChankWriterTest.cs" />
     <Compile Include="Infrastructure\SignalLoaderTest.cs" />
     <Compile Include="Infrastructure\SignalLoadSaveTest.cs" />
     <Compile Include="Infrastructure\SignalSaverTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoveConstantTest.cs" />
     <Compile Include="SignalTest.cs" />
   </ItemGroup>
   <ItemGroup>
