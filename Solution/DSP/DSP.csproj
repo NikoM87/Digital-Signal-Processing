@@ -40,21 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChankReader.cs" />
     <Compile Include="Convolution.cs" />
-    <Compile Include="FileVesionException.cs" />
+    <Compile Include="Infrastructure\Chanks\ChankReader.cs" />
+    <Compile Include="Infrastructure\Chanks\SignalChankReader.cs" />
+    <Compile Include="Infrastructure\Chanks\SignalChankWriter.cs" />
+    <Compile Include="Infrastructure\Chanks\UnknownChankException.cs" />
+    <Compile Include="Infrastructure\FileVesionException.cs" />
+    <Compile Include="Infrastructure\SignalLoader.cs" />
+    <Compile Include="Infrastructure\SignalRandomLoader.cs" />
+    <Compile Include="Infrastructure\SignalSaver.cs" />
+    <Compile Include="Infrastructure\SignatureException.cs" />
     <Compile Include="RemoveConstant.cs" />
-    <Compile Include="SignalChankReader.cs" />
-    <Compile Include="SignalChankWriter.cs" />
-    <Compile Include="SignalRandomLoader.cs" />
     <Compile Include="Signal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SignalLoader.cs" />
-    <Compile Include="SignalSaver.cs" />
-    <Compile Include="SignatureException.cs" />
     <Compile Include="Statictics\Statictics.cs" />
     <Compile Include="Transformation.cs" />
-    <Compile Include="UnknownChankException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

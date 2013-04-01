@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 
 using DSP;
+using DSP.Infrastructure;
 
 
 namespace ApplicationDSP

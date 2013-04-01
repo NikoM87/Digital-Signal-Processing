@@ -1,7 +1,7 @@
-п»їusing System.IO;
+using System.IO;
 
 
-namespace DSP
+namespace DSP.Infrastructure.Chanks
 {
     public class SignalChankReader : ChankReader
     {
@@ -15,7 +15,7 @@ namespace DSP
         {
             if ( Id != SignalSaver.ChankSignal )
             {
-                throw new UnknownChankException( "РќРµ РёР·РІРµСЃС‚РЅР°СЏ СЃС‚СЂСѓРєС‚СѓСЂР° РґР°РЅРЅС‹С…" );
+                throw new UnknownChankException( "Не известная структура данных" );
             }
 
             Signal signal = new Signal();

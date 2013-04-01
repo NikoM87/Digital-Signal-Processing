@@ -1,7 +1,9 @@
-п»їusing System.IO;
+using System.IO;
+
+using DSP.Infrastructure.Chanks;
 
 
-namespace DSP
+namespace DSP.Infrastructure
 {
     public class SignalLoader
     {
@@ -35,14 +37,14 @@ namespace DSP
             uint signature = Reader.ReadUInt32();
             if ( signature != SignalSaver.SignatureFile )
             {
-                throw new SignatureException( "Р¤Р°Р№Р» СЃ РЅРµРёР·РІРµСЃС‚РЅРѕР№ СЃРёРіРЅР°С‚СѓСЂРѕР№" );
+                throw new SignatureException( "Файл с неизвестной сигнатурой" );
             }
-            Reader.ReadUInt16(); // СЂРµР·РµСЂРІ
+            Reader.ReadUInt16(); // резерв
 
             ushort versionFile = Reader.ReadUInt16();
             if ( versionFile != SignalSaver.VersionFormatFile )
             {
-                throw new FileVesionException( "РќРµРёР·РІРµСЃС‚РЅР°СЏ РІРµСЂСЃРёСЏ С„Р°Р№Р»Р°" );
+                throw new FileVesionException( "Неизвестная версия файла" );
             }
         }
     }

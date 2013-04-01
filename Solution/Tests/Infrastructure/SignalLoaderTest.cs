@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.IO;
 
-using DSP;
+using DSP.Infrastructure;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace Tests
+namespace Tests.Infrastructure
 {
     [TestClass]
     public class SignalLoaderTest

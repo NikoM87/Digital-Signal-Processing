@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 
 
-namespace DSP
+namespace DSP.Infrastructure
 {
     public class SignalRandomLoader : SignalLoader
     {

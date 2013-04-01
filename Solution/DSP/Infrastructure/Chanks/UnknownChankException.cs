@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 
 
-namespace DSP
+namespace DSP.Infrastructure.Chanks
 {
     public class UnknownChankException : Exception
     {

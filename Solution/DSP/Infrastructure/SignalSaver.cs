@@ -1,8 +1,10 @@
-ï»¿using System;
+using System;
 using System.IO;
 
+using DSP.Infrastructure.Chanks;
 
-namespace DSP
+
+namespace DSP.Infrastructure
 {
     public class SignalSaver
     {
@@ -34,7 +36,7 @@ namespace DSP
         private void SaveHeader()
         {
             _writer.Write( SignatureFile );
-            _writer.Write( (UInt16) 0000 ); // Ñ€ÐµÐ·ÐµÑ€Ð²
+            _writer.Write( (UInt16) 0000 ); // ðåçåðâ
             _writer.Write( VersionFormatFile );
         }
     }

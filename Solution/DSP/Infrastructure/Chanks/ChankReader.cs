@@ -1,7 +1,7 @@
-﻿using System.IO;
+using System.IO;
 
 
-namespace DSP
+namespace DSP.Infrastructure.Chanks
 {
     public abstract class ChankReader
     {
