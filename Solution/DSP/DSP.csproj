@@ -44,7 +44,8 @@
     <Compile Include="Convolution.cs" />
     <Compile Include="FileVesionException.cs" />
     <Compile Include="RemoveConstant.cs" />
-    <Compile Include="SignalChank.cs" />
+    <Compile Include="SignalChankReader.cs" />
+    <Compile Include="SignalChankWriter.cs" />
     <Compile Include="SignalRandomLoader.cs" />
     <Compile Include="Signal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

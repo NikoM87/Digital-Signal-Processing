@@ -23,7 +23,7 @@ namespace DSP
         {
             LoadHeader();
 
-            ChankReader chankReader = new SignalChank( Reader );
+            ChankReader chankReader = new SignalChankReader( Reader );
             Signal signal = (Signal) chankReader.Read();
 
             return signal;

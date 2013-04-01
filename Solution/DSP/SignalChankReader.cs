@@ -3,9 +3,9 @@
 
 namespace DSP
 {
-    public class SignalChank : ChankReader
+    public class SignalChankReader : ChankReader
     {
-        public SignalChank( BinaryReader reader )
+        public SignalChankReader( BinaryReader reader )
             : base( reader )
         {
         }

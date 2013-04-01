@@ -13,29 +13,21 @@ namespace DSP
         public const UInt16 ChankSignal = 0x0001;
         private readonly BinaryWriter _writer;
 
-
         public SignalSaver( Stream stream )
         {
             _writer = new BinaryWriter( stream );
-        }
+ }
 
 
         public void Save( Signal signal )
         {
             SaveHeader();
 
-            Stream signalChank = SaveSignal( signal );
-            SaveChank( signalChank );
+           
+            SignalChankWriter chankWriter = new SignalChankWriter( _writer );
+            chankWriter.SaveChank( signal );
 
             _writer.Flush();
-        }
-
-
-        private void SaveChank( Stream signalChank )
-        {
-            _writer.Write( ChankSignal );
-            _writer.Write( signalChank.Length );
-            signalChank.CopyTo( _writer.BaseStream );
         }
 
 
@@ -44,25 +36,6 @@ namespace DSP
             _writer.Write( SignatureFile );
             _writer.Write( (UInt16) 0000 ); // резерв
             _writer.Write( VersionFormatFile );
-        }
-
-
-        private Stream SaveSignal( Signal signal )
-        {
-            var stream = new MemoryStream();
-
-            var writer = new BinaryWriter( stream );
-
-            writer.Write( signal.Df );
-            writer.Write( signal.Length );
-            foreach ( double point in signal.Points )
-            {
-                writer.Write( point );
-            }
-
-            stream.Position = 0;
-
-            return stream;
         }
     }
 }

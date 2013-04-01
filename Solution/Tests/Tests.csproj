@@ -49,7 +49,7 @@
     <Compile Include="ConvolutionTest.cs" />
     <Compile Include="CorrelationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SignalChankTest.cs" />
+    <Compile Include="SignalChankReaderTest.cs" />
     <Compile Include="SignalLoaderTest.cs" />
     <Compile Include="SignalLoadSaveTest.cs" />
     <Compile Include="SignalSaverTest.cs" />
