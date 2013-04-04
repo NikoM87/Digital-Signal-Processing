@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Convolution.cs" />
     <Compile Include="Infrastructure\Chanks\Chank.cs" />
+    <Compile Include="Infrastructure\Chanks\ChankArray.cs" />
     <Compile Include="Infrastructure\Chanks\ChankReader.cs" />
     <Compile Include="Infrastructure\Chanks\ChankWriter.cs" />
     <Compile Include="Infrastructure\Chanks\SignalChankReader.cs" />
