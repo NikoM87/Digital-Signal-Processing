@@ -2,11 +2,12 @@ using System;
 using System.IO;
 
 using DSP.Infrastructure.Chanks;
+using DSP.Infrastructure.Chanks.Reader;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace Tests.Infrastructure
+namespace Tests.Infrastructure.Chanks.Reader
 {
     [TestClass]
     public class SignalChankReaderTest
@@ -21,11 +22,11 @@ namespace Tests.Infrastructure
             binaryWriter.BaseStream.Position = 0;
 
             BinaryReader reader = new BinaryReader( binaryWriter.BaseStream );
-            ChankReader chank = new SignalChankReader( reader );
+            ChankReader chankReader = new SignalChankReader( reader );
+            Chank chank = chankReader.Chank;
 
             Assert.AreEqual( (UInt16) 1, chank.Id );
             Assert.AreEqual( 16, chank.Size );
-            Assert.AreEqual( 10, chank.Position );
         }
     }
 }

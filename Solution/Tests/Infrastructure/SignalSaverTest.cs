@@ -2,6 +2,7 @@ using System.IO;
 
 using DSP;
 using DSP.Infrastructure;
+using DSP.Infrastructure.Chanks;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -31,7 +32,7 @@ namespace Tests.Infrastructure
             Assert.AreEqual( SignalSaver.SignatureFile, reader.ReadUInt32() );
             Assert.AreEqual( 0, reader.ReadUInt16() );
             Assert.AreEqual( SignalSaver.VersionFormatFile, reader.ReadUInt16() );
-            Assert.AreEqual( SignalSaver.ChankSignal, reader.ReadUInt16() );
+            Assert.AreEqual( TypesChank.Signal, (TypesChank) reader.ReadUInt16() );
             Assert.AreEqual( 36, reader.ReadInt64() );
             Assert.AreEqual( 0.045, reader.ReadDouble() );
             Assert.AreEqual( 3, reader.ReadInt32() );

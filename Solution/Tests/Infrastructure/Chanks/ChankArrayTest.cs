@@ -1,22 +1,19 @@
-﻿using System.IO;
-
-using DSP.Infrastructure.Chanks;
+﻿using DSP.Infrastructure.Chanks;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace Tests
+namespace Tests.Infrastructure.Chanks
 {
     [TestClass]
     public class ChankArrayTest
     {
-        private readonly ChankArray _array;
+        private readonly ArrayChank _array;
 
 
         public ChankArrayTest()
         {
-            Stream stream = new MemoryStream();
-            _array = new ChankArray( stream );
+            _array = new ArrayChank();
         }
 
 
@@ -31,12 +28,15 @@ namespace Tests
         [TestMethod]
         public void TestAddChank()
         {
-            Chank newChank = new ChankArray( new MemoryStream() );
+            Chank newChank1 = new Chank();
+            Chank newChank2 = new Chank();
 
-            _array.Add( newChank );
-            _array.Add( newChank );
+            _array.Add( newChank1 );
+            _array.Add( newChank2 );
 
             Assert.AreEqual( 2, _array.Length );
+            Assert.AreEqual( newChank1, _array[0] );
+            Assert.AreEqual( newChank2, _array[1] );
         }
     }
 }

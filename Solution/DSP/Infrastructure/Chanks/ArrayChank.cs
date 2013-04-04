@@ -1,27 +1,30 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 
 
 namespace DSP.Infrastructure.Chanks
 {
-    public class ChankArray : Chank
+    public class ArrayChank : Chank
     {
-        public const ushort ChankArrayType = 2;
         private readonly List<Chank> _list;
 
 
-        public ChankArray( Stream chankStream )
-            : base( chankStream )
+        public ArrayChank()
         {
             _list = new List<Chank>();
 
-            Id = ChankArrayType;
+            Id = (ushort) TypesChank.Array;
         }
 
 
         public int Length
         {
             get { return _list.Count; }
+        }
+
+
+        public Chank this[ int index ]
+        {
+            get { return _list[index]; }
         }
 
 

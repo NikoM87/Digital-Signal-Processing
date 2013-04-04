@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-using DSP.Infrastructure.Chanks;
+using DSP.Infrastructure.Chanks.Writer;
 
 
 namespace DSP.Infrastructure
@@ -12,7 +12,6 @@ namespace DSP.Infrastructure
 
         public const UInt16 VersionFormatFile = 1;
 
-        public const UInt16 ChankSignal = 0x0001;
         private readonly BinaryWriter _writer;
 
 

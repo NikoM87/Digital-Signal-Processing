@@ -1,9 +1,9 @@
 using System.IO;
 
 
-namespace DSP.Infrastructure.Chanks
+namespace DSP.Infrastructure.Chanks.Writer
 {
-    public abstract class ChankWriter : Chank
+    public abstract class ChankWriter : StreamChank
     {
         protected readonly BinaryWriter Writer;
 

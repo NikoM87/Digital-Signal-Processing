@@ -1,7 +1,7 @@
 using System.IO;
 
 
-namespace DSP.Infrastructure.Chanks
+namespace DSP.Infrastructure.Chanks.Reader
 {
     public class SignalChankReader : ChankReader
     {
@@ -13,7 +13,7 @@ namespace DSP.Infrastructure.Chanks
 
         public override object ReadData()
         {
-            if ( Id != SignalSaver.ChankSignal )
+            if ( Chank.Id != (decimal) TypesChank.Signal )
             {
                 throw new UnknownChankException( "Не известная структура данных" );
             }
@@ -28,6 +28,8 @@ namespace DSP.Infrastructure.Chanks
             {
                 signal.AddPoint( Reader.ReadDouble() );
             }
+
+            Chank.Data = signal;
 
             return signal;
         }

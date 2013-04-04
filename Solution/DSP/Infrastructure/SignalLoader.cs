@@ -1,6 +1,6 @@
 using System.IO;
 
-using DSP.Infrastructure.Chanks;
+using DSP.Infrastructure.Chanks.Reader;
 
 
 namespace DSP.Infrastructure

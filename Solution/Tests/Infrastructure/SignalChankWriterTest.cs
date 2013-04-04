@@ -1,7 +1,7 @@
 using System.IO;
 
 using DSP;
-using DSP.Infrastructure.Chanks;
+using DSP.Infrastructure.Chanks.Writer;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

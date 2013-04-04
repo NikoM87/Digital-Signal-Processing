@@ -1,22 +1,19 @@
-﻿using System.IO;
-
-using DSP.Infrastructure.Chanks;
+﻿using DSP.Infrastructure.Chanks;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace Tests.Infrastructure
+namespace Tests.Infrastructure.Chanks
 {
     [TestClass]
     public class ChankTest
     {
-        private readonly StreamedChank _newChank;
+        private readonly Chank _newChank;
 
 
         public ChankTest()
         {
-            Stream stream = new MemoryStream();
-            _newChank = new StreamedChank( stream );
+            _newChank = new Chank();
         }
 
 
@@ -25,7 +22,6 @@ namespace Tests.Infrastructure
         {
             Assert.AreEqual( 0, _newChank.Id );
             Assert.AreEqual( 0, _newChank.Size );
-            Assert.AreEqual( 10, _newChank.Position );
             Assert.AreEqual( null, _newChank.Data );
         }
     }

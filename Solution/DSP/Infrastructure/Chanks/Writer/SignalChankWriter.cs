@@ -1,14 +1,14 @@
 using System.IO;
 
 
-namespace DSP.Infrastructure.Chanks
+namespace DSP.Infrastructure.Chanks.Writer
 {
     public class SignalChankWriter : ChankWriter
     {
         public SignalChankWriter( BinaryWriter writer )
             : base( writer )
         {
-            Id = SignalSaver.ChankSignal;
+            Id = (ushort) TypesChank.Signal;
         }
 
 

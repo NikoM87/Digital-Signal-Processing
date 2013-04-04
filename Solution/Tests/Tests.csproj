@@ -46,13 +46,15 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastructure\ChankTest.cs" />
-    <Compile Include="Infrastructure\ChankArrayTest.cs" />
+    <Compile Include="Infrastructure\Chanks\ChankTest.cs" />
+    <Compile Include="Infrastructure\Chanks\ChankArrayTest.cs" />
     <Compile Include="ConvolutionTest.cs" />
     <Compile Include="CorrelationTest.cs" />
-    <Compile Include="Infrastructure\SignalChankReaderTest.cs" />
+    <Compile Include="Infrastructure\Chanks\Reader\ArrayChankReaderTest.cs" />
+    <Compile Include="Infrastructure\Chanks\SignalChankTest.cs" />
+    <Compile Include="Infrastructure\Chanks\Reader\SignalChankReaderTest.cs" />
     <Compile Include="Infrastructure\SignalChankWriterTest.cs" />
-    <Compile Include="Infrastructure\SignalLoaderTest.cs" />
+    <Compile Include="Infrastructure\Chanks\SignalLoaderTest.cs" />
     <Compile Include="Infrastructure\SignalLoadSaveTest.cs" />
     <Compile Include="Infrastructure\SignalSaverTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
