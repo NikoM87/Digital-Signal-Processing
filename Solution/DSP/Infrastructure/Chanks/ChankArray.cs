@@ -25,7 +25,6 @@ namespace DSP.Infrastructure.Chanks
         }
 
 
-
         public void Add( Chank newChank )
         {
             _list.Add( newChank );

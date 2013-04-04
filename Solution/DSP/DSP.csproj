@@ -44,9 +44,11 @@
     <Compile Include="Infrastructure\Chanks\Chank.cs" />
     <Compile Include="Infrastructure\Chanks\ChankArray.cs" />
     <Compile Include="Infrastructure\Chanks\ChankReader.cs" />
+    <Compile Include="Infrastructure\Chanks\ChankSignal.cs" />
     <Compile Include="Infrastructure\Chanks\ChankWriter.cs" />
     <Compile Include="Infrastructure\Chanks\SignalChankReader.cs" />
     <Compile Include="Infrastructure\Chanks\SignalChankWriter.cs" />
+    <Compile Include="Infrastructure\Chanks\StreamedChank.cs" />
     <Compile Include="Infrastructure\Chanks\UnknownChankException.cs" />
     <Compile Include="Infrastructure\FileVesionException.cs" />
     <Compile Include="Infrastructure\SignalLoader.cs" />

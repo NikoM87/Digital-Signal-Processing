@@ -46,7 +46,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChankArrayTest.cs" />
+    <Compile Include="Infrastructure\ChankTest.cs" />
+    <Compile Include="Infrastructure\ChankArrayTest.cs" />
     <Compile Include="ConvolutionTest.cs" />
     <Compile Include="CorrelationTest.cs" />
     <Compile Include="Infrastructure\SignalChankReaderTest.cs" />
