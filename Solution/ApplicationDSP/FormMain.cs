@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 using DSP;
@@ -10,9 +11,9 @@ namespace ApplicationDSP
     public partial class FormMain : Form
     {
         private readonly SignalController _signalController;
-        private readonly SignalLoader _signalRandomLoader = new SignalRandomLoader();
 
         private Signal _signal;
+        private SignalLoader _signalLoader;
 
 
         public FormMain()
@@ -25,9 +26,15 @@ namespace ApplicationDSP
 
         private void ButtonLoadClick( object sender, EventArgs e )
         {
-            _signal = _signalRandomLoader.Load();
+            if ( openFileDialog1.ShowDialog() == DialogResult.OK )
+            {
+                string pathFile = openFileDialog1.FileName;
+                Stream stream = new FileStream( pathFile, FileMode.Open );
+                _signalLoader = new SignalLoader( stream );
+                _signal = _signalLoader.Load();
 
-            _signalController.UpdateSeries( _signal, chart1.Series[0].Points );
+                _signalController.UpdateSeries( _signal, chart1.Series[0].Points );
+            }
         }
 
 
