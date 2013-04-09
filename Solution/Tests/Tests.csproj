@@ -60,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemoveConstantTest.cs" />
     <Compile Include="SignalTest.cs" />
+    <Compile Include="TransformationsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DSP\DSP.csproj">

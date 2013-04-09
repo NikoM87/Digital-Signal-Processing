@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -50,35 +48,13 @@ namespace ApplicationDSP
 
         private void CheckedListBox1SelectedIndexChanged( object sender, EventArgs e )
         {
-            var transformations = AdapterTransformations( checkedListBox1.CheckedItems );
+            var transformations = new Transformations( checkedListBox1.CheckedItems );
 
-            var tranformSignal1 = TranformationSignal( _signal1, transformations );
+            var tranformSignal1 = transformations.TranformationSignal( _signal1 );
             _signalController.UpdateSeries( tranformSignal1, 0 );
 
-            var tranformSignal2 = TranformationSignal( _signal2, transformations );
+            var tranformSignal2 = transformations.TranformationSignal( _signal2 );
             _signalController.UpdateSeries( tranformSignal2, 1 );
-        }
-
-
-        private static IList<Transformation> AdapterTransformations( IEnumerable collectionTransformation )
-        {
-            var transformations = new List<Transformation>();
-            foreach ( Transformation transformation in collectionTransformation )
-            {
-                transformations.Add( transformation );
-            }
-            return transformations;
-        }
-
-
-        private static Signal TranformationSignal( Signal signal, IEnumerable<Transformation> transformations )
-        {
-            Signal tranformSignal1 = signal.Copy();
-            foreach ( var item in transformations )
-            {
-                tranformSignal1 = item.Execute( tranformSignal1 );
-            }
-            return tranformSignal1;
         }
 
 
