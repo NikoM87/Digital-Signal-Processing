@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.IO;
 
+using DSP.Infrastructure.Chanks;
 using DSP.Infrastructure.Chanks.Reader;
 
 
@@ -21,14 +23,20 @@ namespace DSP.Infrastructure
         }
 
 
-        public virtual Signal Load()
+        public virtual List<Signal> Load()
         {
             LoadHeader();
 
-            ChankReader chankReader = new SignalChankReader( _reader );
-            Signal signal = (Signal) chankReader.ReadData();
+            ChankReader chankReader = new ArrayChankReader( _reader );
+            ArrayChank arrayChank = (ArrayChank) chankReader.ReadData();
 
-            return signal;
+            List<Signal> listSignal = new List<Signal>();
+            foreach ( Chank chank in arrayChank )
+            {
+                listSignal.Add( (Signal) chank.Data );
+            }
+
+            return listSignal;
         }
 
 

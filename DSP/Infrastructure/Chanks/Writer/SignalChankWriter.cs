@@ -14,7 +14,8 @@ namespace DSP.Infrastructure.Chanks.Writer
 
         protected override void WriteData( object o )
         {
-            Signal signal = (Signal) o;
+            SignalChank signalChank = (SignalChank) o;
+            Signal signal = (Signal) signalChank.Data;
             Writer.Write( signal.Df );
             Writer.Write( signal.Length );
             foreach ( double point in signal.Points )

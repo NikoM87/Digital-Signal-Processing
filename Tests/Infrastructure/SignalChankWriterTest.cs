@@ -1,6 +1,7 @@
 using System.IO;
 
 using DSP;
+using DSP.Infrastructure.Chanks;
 using DSP.Infrastructure.Chanks.Writer;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -23,7 +24,7 @@ namespace Tests.Infrastructure
             signal.AddPoint( 2.4 );
 
             ChankWriter chank = new SignalChankWriter( _writer );
-            chank.Write( signal );
+            chank.Write( new SignalChank( signal ) );
 
             Assert.AreEqual( 1, chank.Id );
             Assert.AreEqual( 28, chank.Size );
@@ -40,14 +41,14 @@ namespace Tests.Infrastructure
             signal.AddPoint( 2.4 );
 
             ChankWriter chank = new SignalChankWriter( _writer );
-            chank.Write( signal );
+            chank.Write( new SignalChank( signal ) );
 
             Assert.AreEqual( 1, chank.Id );
             Assert.AreEqual( 28, chank.Size );
             Assert.AreEqual( 10, chank.Position );
 
             chank = new SignalChankWriter( _writer );
-            chank.Write( signal );
+            chank.Write( new SignalChank( signal ) );
 
             Assert.AreEqual( 1, chank.Id );
             Assert.AreEqual( 28, chank.Size );
@@ -70,10 +71,10 @@ namespace Tests.Infrastructure
             signal2.AddPoint( 3.6 );
 
             ChankWriter chank1 = new SignalChankWriter( _writer );
-            chank1.Write( signal1 );
+            chank1.Write( new SignalChank( signal1 ) );
 
             ChankWriter chank2 = new SignalChankWriter( _writer );
-            chank2.Write( signal2 );
+            chank2.Write( new SignalChank( signal2 ) );
 
             Assert.AreEqual( 28, chank1.Size );
             Assert.AreEqual( 36, chank2.Size );

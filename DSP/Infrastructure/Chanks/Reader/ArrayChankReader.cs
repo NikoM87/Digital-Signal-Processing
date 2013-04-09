@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.IO;
 
 
@@ -9,7 +8,6 @@ namespace DSP.Infrastructure.Chanks.Reader
         public ArrayChankReader( BinaryReader reader )
             : base( reader )
         {
-            Chank.Id = (ushort) TypesChank.Array;
         }
 
 
@@ -23,15 +21,15 @@ namespace DSP.Infrastructure.Chanks.Reader
             TypesChank typeItem = (TypesChank) Reader.ReadUInt16();
             int count = Reader.ReadInt32();
 
-            List<Chank> list = new List<Chank>( count );
+            ArrayChank list = new ArrayChank( typeItem );
             for ( int i = 0; i < count; i++ )
             {
                 Chank chank = new Chank();
 
-                ChankReader signal = ChankReaderFactory.GetChankReaderFactory( typeItem, Reader );
-                chank.Id = signal.Chank.Id;
-                chank.Size = signal.Chank.Size;
-                chank.Data = signal.ReadData();
+                ChankReader chankReader = ChankReaderFactory.GetChankReaderFactory( typeItem, Reader );
+                chank.Id = chankReader.Chank.Id;
+                chank.Size = chankReader.Chank.Size;
+                chank.Data = chankReader.ReadData();
 
                 list.Add( chank );
             }

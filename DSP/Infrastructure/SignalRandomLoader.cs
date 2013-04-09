@@ -1,11 +1,12 @@
 using System;
+using System.Collections.Generic;
 
 
 namespace DSP.Infrastructure
 {
     public class SignalRandomLoader : SignalLoader
     {
-        public override Signal Load()
+        public override List<Signal> Load()
         {
             Signal signal = new Signal();
             signal.Df = 0.1;
@@ -17,7 +18,7 @@ namespace DSP.Infrastructure
                 signal.AddPoint( random.Next( 0, 1024 ) );
             }
 
-            return signal;
+            return new List<Signal> {signal};
         }
     }
 }

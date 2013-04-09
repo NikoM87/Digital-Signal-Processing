@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
+using DSP.Infrastructure.Chanks;
 using DSP.Infrastructure.Chanks.Writer;
 
 
@@ -21,12 +23,19 @@ namespace DSP.Infrastructure
         }
 
 
-        public void Save( Signal signal )
+        public void Save( IEnumerable<Signal> signals )
         {
             SaveHeader();
 
-            ChankWriter chankWriter = new SignalChankWriter( _writer );
-            chankWriter.Write( signal );
+            ArrayChank array = new ArrayChank( TypesChank.Signal );
+
+            foreach ( Signal signal in signals )
+            {
+                array.Add( new SignalChank( signal ) );
+            }
+
+            ChankWriter arrayWriter = new ArrayChankWriter( _writer );
+            arrayWriter.Write( array );
 
             _writer.Flush();
         }

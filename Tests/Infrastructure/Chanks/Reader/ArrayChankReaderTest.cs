@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
 
 using DSP;
@@ -19,24 +17,21 @@ namespace Tests.Infrastructure.Chanks.Reader
         public void LoadArrayChank()
         {
             BinaryWriter binaryWriter = new BinaryWriter( new MemoryStream() );
-            binaryWriter.Write( (UInt16) TypesChank.Array );
-            binaryWriter.Write( (Int64) 0 );
 
-            Signal signal = new Signal();
-
-            binaryWriter.Write( (UInt16) TypesChank.Signal );
-            binaryWriter.Write( 2 );
-            SignalChankWriter saver = new SignalChankWriter( binaryWriter );
-            saver.Write( signal );
-            saver.Write( signal );
+            ArrayChankWriter saver = new ArrayChankWriter( binaryWriter );
+            saver.Write( new ArrayChank( TypesChank.Signal )
+            {
+                new SignalChank( new Signal() ),
+                new SignalChank( new Signal() )
+            } );
 
             binaryWriter.BaseStream.Position = 0;
 
             BinaryReader reader = new BinaryReader( binaryWriter.BaseStream );
             ChankReader chankReader = new ArrayChankReader( reader );
-            List<Chank> list = (List<Chank>) chankReader.ReadData();
+            ArrayChank list = (ArrayChank) chankReader.ReadData();
 
-            Assert.AreEqual( 2, list.Count );
+            Assert.AreEqual( 2, list.Length );
             Assert.AreEqual( (ushort) TypesChank.Signal, list[0].Id );
             Assert.AreEqual( 12, list[0].Size );
             Assert.AreEqual( (ushort) TypesChank.Signal, list[1].Id );

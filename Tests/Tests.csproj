@@ -62,6 +62,7 @@
     <Compile Include="Infrastructure\Chanks\Reader\ArrayChankReaderTest.cs" />
     <Compile Include="Infrastructure\Chanks\SignalChankTest.cs" />
     <Compile Include="Infrastructure\Chanks\Reader\SignalChankReaderTest.cs" />
+    <Compile Include="Infrastructure\Chanks\Writer\ArrayChankWriterTest.cs" />
     <Compile Include="Infrastructure\SignalChankWriterTest.cs" />
     <Compile Include="Infrastructure\Chanks\SignalLoaderTest.cs" />
     <Compile Include="Infrastructure\SignalLoadSaveTest.cs" />

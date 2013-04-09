@@ -6,7 +6,7 @@ using DSP.Infrastructure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace Tests.Infrastructure
+namespace Tests.Infrastructure.Chanks
 {
     [TestClass]
     public class SignalLoaderTest

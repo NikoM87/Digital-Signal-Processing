@@ -13,7 +13,7 @@ namespace Tests.Infrastructure.Chanks
 
         public ChankArrayTest()
         {
-            _array = new ArrayChank();
+            _array = new ArrayChank( TypesChank.Unknown );
         }
 
 

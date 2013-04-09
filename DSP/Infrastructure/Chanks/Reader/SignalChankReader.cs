@@ -15,7 +15,7 @@ namespace DSP.Infrastructure.Chanks.Reader
         {
             if ( Chank.Id != (decimal) TypesChank.Signal )
             {
-                throw new UnknownChankException( "Не известная структура данных" );
+                throw new UnknownChankException( "Не верная структура данных " + (TypesChank) Chank.Id );
             }
 
             Signal signal = new Signal();
