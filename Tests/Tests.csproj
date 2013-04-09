@@ -58,7 +58,7 @@
     <Compile Include="Infrastructure\Chanks\ChankTest.cs" />
     <Compile Include="Infrastructure\Chanks\ChankArrayTest.cs" />
     <Compile Include="ConvolutionTest.cs" />
-    <Compile Include="CorrelationTest.cs" />
+    <Compile Include="Transformation\CorrelationTest.cs" />
     <Compile Include="Infrastructure\Chanks\Reader\ArrayChankReaderTest.cs" />
     <Compile Include="Infrastructure\Chanks\SignalChankTest.cs" />
     <Compile Include="Infrastructure\Chanks\Reader\SignalChankReaderTest.cs" />
@@ -68,9 +68,9 @@
     <Compile Include="Infrastructure\SignalLoadSaveTest.cs" />
     <Compile Include="Infrastructure\SignalSaverTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RemoveConstantTest.cs" />
+    <Compile Include="Transformation\RemoveConstantTest.cs" />
     <Compile Include="SignalTest.cs" />
-    <Compile Include="TransformationsTest.cs" />
+    <Compile Include="Transformation\TransformationsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DSP\DSP.csproj">

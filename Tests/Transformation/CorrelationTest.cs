@@ -3,7 +3,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace Tests
+namespace Tests.Transformation
 {
     [TestClass]
     public class CorrelationTest

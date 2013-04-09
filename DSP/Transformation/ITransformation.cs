@@ -1,4 +1,4 @@
-﻿namespace DSP
+﻿namespace DSP.Transformation
 {
     public interface ITransformation
     {

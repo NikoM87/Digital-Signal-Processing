@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-namespace DSP
+namespace DSP.Transformation
 {
     public class Transformations : List<ITransformation>
     {

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 using DSP;
 using DSP.Infrastructure;
+using DSP.Transformation;
 
 
 namespace ApplicationDSP

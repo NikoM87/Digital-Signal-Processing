@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 
 using DSP;
+using DSP.Transformation;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Moq;
 
 
-namespace Tests
+namespace Tests.Transformation
 {
     [TestClass]
     public class TransformationsTest
