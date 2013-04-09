@@ -58,15 +58,14 @@
     <Compile Include="Infrastructure\Chanks\UnknownChankException.cs" />
     <Compile Include="Infrastructure\FileVesionException.cs" />
     <Compile Include="Infrastructure\SignalLoader.cs" />
-    <Compile Include="Infrastructure\SignalRandomLoader.cs" />
     <Compile Include="Infrastructure\SignalSaver.cs" />
     <Compile Include="Infrastructure\SignatureException.cs" />
-    <Compile Include="RemoveConstant.cs" />
+    <Compile Include="Transformation\RemoveConstant.cs" />
     <Compile Include="Signal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statictics\Statictics.cs" />
-    <Compile Include="Transformation.cs" />
-    <Compile Include="Transformations.cs" />
+    <Compile Include="Transformation\ITransformation.cs" />
+    <Compile Include="Transformation\Transformations.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

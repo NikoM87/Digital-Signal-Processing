@@ -18,9 +18,7 @@ namespace DSP.Infrastructure
         }
 
 
-        protected SignalLoader()
-        {
-        }
+ 
 
 
         public virtual List<Signal> Load()
