@@ -6,6 +6,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSP", "DSP\DSP.csproj", "{D85FD93D-25D4-4DC7-83E8-D6AA93262D87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationDSP", "ApplicationDSP\ApplicationDSP.csproj", "{B0BE3BCD-AEBD-43B9-AE52-1026286468F1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F89736CA-6BD4-4D49-9FA9-0C4319172349} = {F89736CA-6BD4-4D49-9FA9-0C4319172349}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{62106A64-FFCC-4D8F-B9E4-9574B434A8E3}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,5 +60,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal
