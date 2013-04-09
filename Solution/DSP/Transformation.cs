@@ -1,7 +1,7 @@
 ﻿namespace DSP
 {
-    public abstract class Transformation
+    public interface ITransformation
     {
-        public abstract Signal Execute( Signal signal );
+        Signal Execute( Signal signal );
     }
 }

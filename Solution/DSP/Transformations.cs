@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DSP
 {
-    public class Transformations : List<Transformation>
+    public class Transformations : List<ITransformation>
     {
         public Transformations( IEnumerable enumerable )
         {
@@ -12,9 +12,14 @@ namespace DSP
         }
 
 
+        public Transformations()
+        {
+        }
+
+
         private void AddTransformations( IEnumerable collectionTransformation )
         {
-            foreach ( Transformation transformation in collectionTransformation )
+            foreach ( ITransformation transformation in collectionTransformation )
             {
                 Add( transformation );
             }

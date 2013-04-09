@@ -1,8 +1,8 @@
 ﻿namespace DSP
 {
-    public class RemoveConstant : Transformation
+    public class RemoveConstant : ITransformation
     {
-        public override Signal Execute( Signal signal )
+        public Signal Execute( Signal signal )
         {
             double[] array = signal.ToArray;
             var mean = Statictics.Statictics.Mean( array );

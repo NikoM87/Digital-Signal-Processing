@@ -17,7 +17,7 @@ namespace Tests
             signal.AddPoint( 2 );
             signal.AddPoint( 3 );
 
-            Transformation transformation = new RemoveConstant();
+            ITransformation transformation = new RemoveConstant();
             Signal transformed = transformation.Execute( signal );
 
             Assert.AreEqual( signal.Df, transformed.Df );
