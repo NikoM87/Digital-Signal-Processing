@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms.DataVisualization.Charting;
+﻿using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 using DSP;
 
@@ -29,6 +30,12 @@ namespace ApplicationDSP
                 pointCollection.AddXY( i * df, pointsArray[i] );
             }
             pointCollection.ResumeUpdates();
+        }
+
+
+        public int GetSelectedNumSignal( ComboBox sender )
+        {
+            return (int) sender.SelectedItem - 1;
         }
     }
 }
