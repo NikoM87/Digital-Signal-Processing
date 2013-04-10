@@ -18,9 +18,6 @@ namespace DSP.Infrastructure
         }
 
 
- 
-
-
         public virtual List<Signal> Load()
         {
             LoadHeader();

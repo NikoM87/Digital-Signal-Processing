@@ -150,6 +150,7 @@ namespace ApplicationDSP
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(28, 21);
             this.comboBox1.TabIndex = 7;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -159,6 +160,7 @@ namespace ApplicationDSP
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(28, 21);
             this.comboBox2.TabIndex = 8;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.ComboBox2SelectedIndexChanged);
             // 
             // FormMain
             // 
