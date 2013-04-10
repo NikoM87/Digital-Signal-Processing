@@ -16,10 +16,10 @@ namespace Tests.Infrastructure.Chanks.Writer
         [TestMethod]
         public void ArrayChankSaveAndLoad()
         {
-            BinaryWriter writer = new BinaryWriter( new MemoryStream() );
-            ArrayChankWriter arrayWriter = new ArrayChankWriter( writer );
+            var writer = new BinaryWriter( new MemoryStream() );
+            var arrayWriter = new ArrayChankWriter( writer );
 
-            ArrayChank signals = new ArrayChank( TypesChank.Signal );
+            var signals = new ArrayChank( TypesChank.Signal );
             signals.Add( new SignalChank( new Signal
             {
                 Df = 0.1
@@ -32,11 +32,11 @@ namespace Tests.Infrastructure.Chanks.Writer
             arrayWriter.Write( signals );
             writer.BaseStream.Position = 0;
 
-            ArrayChankReader arrayReader = new ArrayChankReader( new BinaryReader( writer.BaseStream ) );
-            ArrayChank readedSignals = (ArrayChank) arrayReader.ReadData();
+            var arrayReader = new ArrayChankReader( new BinaryReader( writer.BaseStream ) );
+            var readedSignals = (ArrayChank) arrayReader.ReadData();
 
-            Signal s1 = (Signal) readedSignals[0].Data;
-            Signal s2 = (Signal) readedSignals[1].Data;
+            var s1 = (Signal) readedSignals[0].Data;
+            var s2 = (Signal) readedSignals[1].Data;
 
             Assert.AreEqual( 0.1, s1.Df );
             Assert.AreEqual( 0.2, s2.Df );

@@ -17,9 +17,9 @@ namespace Tests.Infrastructure
         public void TestSignalSaver()
         {
             Stream stream = new MemoryStream();
-            SignalSaver saver = new SignalSaver( stream );
+            var saver = new SignalSaver( stream );
 
-            Signal signal = new Signal();
+            var signal = new Signal();
             signal.Df = 0.045;
             signal.AddPoint( 1.2 );
             signal.AddPoint( 3.4 );
@@ -28,7 +28,7 @@ namespace Tests.Infrastructure
             saver.Save( new List<Signal> {signal} );
 
             stream.Position = 0;
-            BinaryReader reader = new BinaryReader( stream );
+            var reader = new BinaryReader( stream );
 
             Assert.AreEqual( SignalSaver.SignatureFile, reader.ReadUInt32() );
             Assert.AreEqual( 0, reader.ReadUInt16() );

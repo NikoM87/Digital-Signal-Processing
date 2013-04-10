@@ -41,7 +41,7 @@ namespace DSP
 
         public Signal Copy()
         {
-            Signal signal = new Signal();
+            var signal = new Signal();
             signal.Df = Df;
             signal._points.AddRange( _points );
 

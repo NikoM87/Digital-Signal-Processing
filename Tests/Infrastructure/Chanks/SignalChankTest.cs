@@ -30,9 +30,9 @@ namespace Tests.Infrastructure.Chanks
         [TestMethod]
         public void TestSignalChankCreateWithSignal()
         {
-            Signal signal = new Signal();
+            var signal = new Signal();
 
-            SignalChank signalChank = new SignalChank( signal );
+            var signalChank = new SignalChank( signal );
 
             Assert.AreEqual( signal, signalChank.Data );
         }

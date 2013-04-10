@@ -15,7 +15,7 @@ namespace DSP.Infrastructure.Chanks.Writer
 
         protected override void WriteData( object o )
         {
-            ArrayChank listChank = (ArrayChank) o;
+            var listChank = (ArrayChank) o;
 
             Writer.Write( (UInt16) listChank.Type );
             Writer.Write( listChank.Length );

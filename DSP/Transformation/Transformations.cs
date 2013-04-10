@@ -29,7 +29,7 @@ namespace DSP.Transformation
         public Signal TranformationSignal( Signal signal )
         {
             Signal tranformSignal1 = signal.Copy();
-            foreach ( var item in this )
+            foreach ( ITransformation item in this )
             {
                 tranformSignal1 = item.Execute( tranformSignal1 );
             }

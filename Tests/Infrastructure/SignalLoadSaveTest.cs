@@ -17,17 +17,17 @@ namespace Tests.Infrastructure
         {
             Stream streams = new MemoryStream();
 
-            Signal signal = new Signal();
+            var signal = new Signal();
             signal.Df = 0.045;
             signal.AddPoint( 1.2 );
             signal.AddPoint( 3.4 );
             signal.AddPoint( 5.6 );
 
-            SignalSaver saver = new SignalSaver( streams );
+            var saver = new SignalSaver( streams );
             saver.Save( new List<Signal> {signal} );
 
             streams.Position = 0;
-            SignalLoader loader = new SignalLoader( streams );
+            var loader = new SignalLoader( streams );
             List<Signal> loadedSignal = loader.Load();
 
             Assert.AreEqual( 0.045, loadedSignal[0].Df );

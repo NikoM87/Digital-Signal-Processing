@@ -28,8 +28,8 @@ namespace Tests.Infrastructure.Chanks
         [TestMethod]
         public void TestAddChank()
         {
-            Chank newChank1 = new Chank();
-            Chank newChank2 = new Chank();
+            var newChank1 = new Chank();
+            var newChank2 = new Chank();
 
             _array.Add( newChank1 );
             _array.Add( newChank2 );

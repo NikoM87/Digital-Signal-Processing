@@ -6,7 +6,7 @@
         {
             int n = h.Length;
 
-            double[] res = new double[n];
+            var res = new double[n];
 
             for ( int i = 0; i < n; i++ )
             {

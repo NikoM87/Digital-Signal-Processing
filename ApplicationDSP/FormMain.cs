@@ -58,10 +58,10 @@ namespace ApplicationDSP
             int i1 = GetSelectedNumSignal( comboBox1 );
             int i2 = GetSelectedNumSignal( comboBox2 );
 
-            var tranformSignal1 = transformations.TranformationSignal( _signal1[i1] );
+            Signal tranformSignal1 = transformations.TranformationSignal( _signal1[i1] );
             _signalController.UpdateSeries( tranformSignal1, 0 );
 
-            var tranformSignal2 = transformations.TranformationSignal( _signal2[i2] );
+            Signal tranformSignal2 = transformations.TranformationSignal( _signal2[i2] );
             _signalController.UpdateSeries( tranformSignal2, 1 );
         }
 
@@ -93,7 +93,7 @@ namespace ApplicationDSP
 
         private void ComboBox1SelectedIndexChanged( object sender, EventArgs e )
         {
-            var selected = GetSelectedNumSignal( (ComboBox) sender );
+            int selected = GetSelectedNumSignal( (ComboBox) sender );
 
             _signalController.UpdateSeries( _signal1[selected], 0 );
         }

@@ -12,7 +12,7 @@ namespace Tests.Transformation
         [TestMethod]
         public void TestRemoveConstant()
         {
-            Signal signal = new Signal();
+            var signal = new Signal();
             signal.Df = 0.1;
             signal.AddPoint( 1 );
             signal.AddPoint( 2 );

@@ -11,7 +11,7 @@ namespace Tests
         [TestMethod]
         public void TestConvolution()
         {
-            Convolution conv = new Convolution();
+            var conv = new Convolution();
 
             double[] x = {1, 2, 3, 4, 1, 2, 3, 4};
             double[] h = {4, 3, 2, 1};

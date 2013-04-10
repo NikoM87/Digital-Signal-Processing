@@ -15,13 +15,13 @@ namespace Tests.Infrastructure.Chanks.Reader
         [TestMethod]
         public void LoadSignalChunk()
         {
-            BinaryWriter binaryWriter = new BinaryWriter( new MemoryStream() );
+            var binaryWriter = new BinaryWriter( new MemoryStream() );
 
             binaryWriter.Write( (UInt16) 1 );
             binaryWriter.Write( (UInt64) 16 );
             binaryWriter.BaseStream.Position = 0;
 
-            BinaryReader reader = new BinaryReader( binaryWriter.BaseStream );
+            var reader = new BinaryReader( binaryWriter.BaseStream );
             ChankReader chankReader = new SignalChankReader( reader );
             Chank chank = chankReader.Chank;
 

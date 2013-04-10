@@ -5,9 +5,9 @@
         public Signal Execute( Signal signal )
         {
             double[] array = signal.ToArray;
-            var mean = Statictics.Statictics.Mean( array );
+            double mean = Statictics.Statictics.Mean( array );
 
-            Signal meanSignal = new Signal();
+            var meanSignal = new Signal();
             meanSignal.Df = signal.Df;
 
             for ( int i = 0; i < array.Length; i++ )

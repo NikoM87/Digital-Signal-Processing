@@ -18,7 +18,7 @@ namespace DSP.Infrastructure.Chanks.Reader
                 throw new UnknownChankException( "Не верная структура данных " + (TypesChank) Chank.Id );
             }
 
-            Signal signal = new Signal();
+            var signal = new Signal();
             signal.Df = Reader.ReadDouble();
 
             int countPoints = Reader.ReadInt32();

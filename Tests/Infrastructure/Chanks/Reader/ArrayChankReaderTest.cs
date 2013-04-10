@@ -16,9 +16,9 @@ namespace Tests.Infrastructure.Chanks.Reader
         [TestMethod]
         public void LoadArrayChank()
         {
-            BinaryWriter binaryWriter = new BinaryWriter( new MemoryStream() );
+            var binaryWriter = new BinaryWriter( new MemoryStream() );
 
-            ArrayChankWriter saver = new ArrayChankWriter( binaryWriter );
+            var saver = new ArrayChankWriter( binaryWriter );
             saver.Write( new ArrayChank( TypesChank.Signal )
             {
                 new SignalChank( new Signal() ),
@@ -27,9 +27,9 @@ namespace Tests.Infrastructure.Chanks.Reader
 
             binaryWriter.BaseStream.Position = 0;
 
-            BinaryReader reader = new BinaryReader( binaryWriter.BaseStream );
+            var reader = new BinaryReader( binaryWriter.BaseStream );
             ChankReader chankReader = new ArrayChankReader( reader );
-            ArrayChank list = (ArrayChank) chankReader.ReadData();
+            var list = (ArrayChank) chankReader.ReadData();
 
             Assert.AreEqual( 2, list.Length );
             Assert.AreEqual( (ushort) TypesChank.Signal, list[0].Id );

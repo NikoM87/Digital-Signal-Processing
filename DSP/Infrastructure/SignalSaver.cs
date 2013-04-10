@@ -27,7 +27,7 @@ namespace DSP.Infrastructure
         {
             SaveHeader();
 
-            ArrayChank array = new ArrayChank( TypesChank.Signal );
+            var array = new ArrayChank( TypesChank.Signal );
 
             foreach ( Signal signal in signals )
             {

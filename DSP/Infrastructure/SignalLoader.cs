@@ -23,9 +23,9 @@ namespace DSP.Infrastructure
             LoadHeader();
 
             ChankReader chankReader = new ArrayChankReader( _reader );
-            ArrayChank arrayChank = (ArrayChank) chankReader.ReadData();
+            var arrayChank = (ArrayChank) chankReader.ReadData();
 
-            List<Signal> listSignal = new List<Signal>();
+            var listSignal = new List<Signal>();
             foreach ( Chank chank in arrayChank )
             {
                 listSignal.Add( (Signal) chank.Data );

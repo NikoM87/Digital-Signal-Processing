@@ -18,13 +18,13 @@ namespace DSP.Infrastructure.Chanks.Reader
                 throw new UnknownChankException( "Не известная структура данных" );
             }
 
-            TypesChank typeItem = (TypesChank) Reader.ReadUInt16();
+            var typeItem = (TypesChank) Reader.ReadUInt16();
             int count = Reader.ReadInt32();
 
-            ArrayChank list = new ArrayChank( typeItem );
+            var list = new ArrayChank( typeItem );
             for ( int i = 0; i < count; i++ )
             {
-                Chank chank = new Chank();
+                var chank = new Chank();
 
                 ChankReader chankReader = ChankReaderFactory.GetChankReaderFactory( typeItem, Reader );
                 chank.Id = chankReader.Chank.Id;
