@@ -1,28 +1,21 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 using DSP;
 
 
-namespace ApplicationDSP
+namespace ApplicationDSP.Controllers
 {
     public class SignalController
     {
-        private readonly Chart _chart1;
 
-
-        public SignalController( Chart chart1 )
-        {
-            _chart1 = chart1;
-        }
-
-
-        public void UpdateSeries( Signal signal, int seriesNumber )
+        public void UpdateSeries( Signal signal, Series series )
         {
             double[] pointsArray = signal.ToArray;
             double df = signal.Df;
 
-            DataPointCollection pointCollection = _chart1.Series[seriesNumber].Points;
+            DataPointCollection pointCollection = series.Points;
             pointCollection.SuspendUpdates();
             pointCollection.Clear();
             for ( int i = 0; i < pointsArray.Length; i += pointsArray.Length / 300 )
@@ -36,6 +29,16 @@ namespace ApplicationDSP
         public int GetSelectedNumSignal( ComboBox sender )
         {
             return (int) sender.SelectedItem - 1;
+        }
+
+
+        public static void UpdateSignalCount( ICollection signal2, ComboBox.ObjectCollection items )
+        {
+            items.Clear();
+            for ( int i = 0; i < signal2.Count; i++ )
+            {
+                items.Add( i + 1 );
+            }
         }
     }
 }

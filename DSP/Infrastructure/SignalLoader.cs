@@ -50,5 +50,16 @@ namespace DSP.Infrastructure
                 throw new FileVesionException( "Неизвестная версия файла" );
             }
         }
+
+
+        public static List<Signal> LoadFromFile( string pathFile )
+        {
+            Stream stream = new FileStream( pathFile, FileMode.Open );
+            SignalLoader signalLoader = new SignalLoader( stream );
+            List<Signal> signals = signalLoader.Load();
+            stream.Close();
+
+            return signals;
+        }
     }
 }
