@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -7,7 +8,7 @@ using DSP.Infrastructure.Chanks.Reader;
 
 namespace DSP.Infrastructure
 {
-    public class SignalLoader
+    public sealed class SignalLoader : IDisposable
     {
         private readonly BinaryReader _reader;
 
@@ -18,7 +19,13 @@ namespace DSP.Infrastructure
         }
 
 
-        public virtual List<Signal> Load()
+        public void Dispose()
+        {
+            _reader.Dispose();
+        }
+
+
+        public List<Signal> Load()
         {
             LoadHeader();
 
@@ -55,7 +62,7 @@ namespace DSP.Infrastructure
         public static List<Signal> LoadFromFile( string pathFile )
         {
             Stream stream = new FileStream( pathFile, FileMode.Open );
-            SignalLoader signalLoader = new SignalLoader( stream );
+            var signalLoader = new SignalLoader( stream );
             List<Signal> signals = signalLoader.Load();
             stream.Close();
 

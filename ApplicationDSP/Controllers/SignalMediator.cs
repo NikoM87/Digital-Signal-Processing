@@ -3,63 +3,96 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 using DSP;
+using DSP.Infrastructure;
 using DSP.Transformation;
 
 
 namespace ApplicationDSP.Controllers
 {
-    public class SignalMediator : Mediator
+    public class SignalMediator
     {
-        public List<Signal> List { get; set; }
-
-
-        public ComboBoxColleague ComboBoxColleague { get; set; }
-
-        public ChartSeriesColleague ChartSeriesColleague { get; set; }
-
+        private ChartSeriesColleague _chartSeriesColleague;
+        private ComboBoxColleague _comboBoxColleague;
+        private string _filePath;
+        private List<Signal> _signals;
+        private TextBoxCollegue _textBoxCollegue;
+        private TransformationsColleague _transformationCollegue;
         private Transformations _transformations;
 
 
-        public override void UpdateNumber( int selected, Colleague colleague )
+        private List<Signal> Signals
         {
-            if ( colleague == ComboBoxColleague )
+            get { return _signals; }
+            set
             {
-                TransformationCollegue.Update( _transformations );
+                _signals = value;
+                _comboBoxColleague.UpdateSignalCount( _signals );
             }
         }
 
 
-        public static SignalMediator CreateSignalMediator( ComboBox comboBox, Series series )
+        private string FilePath
         {
-            var signalController = new SignalController();
+            set
+            {
+                _filePath = value;
+                _textBoxCollegue.Update( _filePath );
+            }
+        }
+
+
+        public void RegisterTransformation( Transformations transformations )
+        {
+            _transformations = transformations;
+            _transformationCollegue.Update( _transformations );
+        }
+
+
+        internal void UpdateNumber( Colleague colleague )
+        {
+            if ( colleague == _comboBoxColleague )
+            {
+                _transformationCollegue.Update( _transformations );
+            }
+        }
+
+
+        internal static SignalMediator Create( ComboBox comboBox, Series series, TextBox textBoxLoad1 )
+        {
             var signalMediator = new SignalMediator();
-            ComboBoxColleague colleagueComboBox = new ComboBoxColleague( signalMediator, comboBox );
-            ChartSeriesColleague colleagueChartSeries = new ChartSeriesColleague( signalMediator, series,
-                signalController );
-            TransformationsColluegue collueguetraTransformations = new TransformationsColluegue( signalMediator );
-            signalMediator.ComboBoxColleague = colleagueComboBox;
-            signalMediator.ChartSeriesColleague = colleagueChartSeries;
-            signalMediator.TransformationCollegue = collueguetraTransformations;
+
+            signalMediator._comboBoxColleague = new ComboBoxColleague( signalMediator, comboBox );
+            signalMediator._chartSeriesColleague = new ChartSeriesColleague( signalMediator, series );
+            signalMediator._transformationCollegue = new TransformationsColleague( signalMediator );
+            signalMediator._textBoxCollegue = new TextBoxCollegue( signalMediator, textBoxLoad1 );
 
             return signalMediator;
         }
 
 
-        public TransformationsColluegue TransformationCollegue { get; set; }
-
-
-        public override void UpdateTransformation( Transformations transformations )
+        public void UpdateTransformation( Transformations transformations )
         {
             _transformations = transformations;
-            int selected = ComboBoxColleague.GetNumber();
+            int selected = _comboBoxColleague.GetNumber();
             if ( selected >= 0 )
             {
-                Signal tranformSignal1 = List[selected];
+                Signal tranformSignal1 = Signals[selected];
                 if ( _transformations != null )
                 {
                     tranformSignal1 = _transformations.TranformationSignal( tranformSignal1 );
                 }
-                ChartSeriesColleague.Notify( tranformSignal1 );
+                _chartSeriesColleague.Notify( tranformSignal1 );
+            }
+        }
+
+
+        public void LoadSignal()
+        {
+            string pathFile = AppDialogs.ShowOpenDialogForSignal();
+            if ( pathFile != null )
+            {
+                FilePath = pathFile;
+                Signals = SignalLoader.LoadFromFile( pathFile );
             }
         }
     }

@@ -19,15 +19,17 @@ namespace Tests.Infrastructure.Chanks.Writer
             var writer = new BinaryWriter( new MemoryStream() );
             var arrayWriter = new ArrayChankWriter( writer );
 
-            var signals = new ArrayChank( TypesChank.Signal );
-            signals.Add( new SignalChank( new Signal
+            var signals = new ArrayChank( TypesChank.Signal )
             {
-                Df = 0.1
-            } ) );
-            signals.Add( new SignalChank( new Signal
-            {
-                Df = 0.2
-            } ) );
+                new SignalChank( new Signal
+                {
+                    Df = 0.1
+                } ),
+                new SignalChank( new Signal
+                {
+                    Df = 0.2
+                } )
+            };
 
             arrayWriter.Write( signals );
             writer.BaseStream.Position = 0;

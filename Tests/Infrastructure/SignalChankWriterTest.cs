@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 using DSP;
@@ -10,9 +11,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Infrastructure
 {
     [TestClass]
-    public class SignalChankWriterTest
+    public sealed class SignalChankWriterTest : IDisposable
     {
         private readonly BinaryWriter _writer = new BinaryWriter( new MemoryStream() );
+
+
+        public void Dispose()
+        {
+            _writer.Dispose();
+        }
 
 
         [TestMethod]

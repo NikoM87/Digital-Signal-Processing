@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Infrastructure.Chanks
 {
     [TestClass]
-    public class SignalLoaderTest
+    public sealed class SignalLoaderTest : IDisposable
     {
         private readonly BinaryWriter _binaryWriter;
         private readonly SignalLoader _loader;
@@ -20,6 +20,13 @@ namespace Tests.Infrastructure.Chanks
             Stream stream = new MemoryStream();
             _loader = new SignalLoader( stream );
             _binaryWriter = new BinaryWriter( stream );
+        }
+
+
+        public void Dispose()
+        {
+            _loader.Dispose();
+            _binaryWriter.Dispose();
         }
 
 

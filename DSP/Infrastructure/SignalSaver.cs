@@ -8,7 +8,7 @@ using DSP.Infrastructure.Chanks.Writer;
 
 namespace DSP.Infrastructure
 {
-    public class SignalSaver
+    public sealed class SignalSaver : IDisposable
     {
         public const UInt32 SignatureFile = 0x01020304;
 
@@ -20,6 +20,13 @@ namespace DSP.Infrastructure
         public SignalSaver( Stream stream )
         {
             _writer = new BinaryWriter( stream );
+        }
+
+
+        public void Dispose()
+        {
+            if ( _writer != null )
+                _writer.Dispose();
         }
 
 

@@ -7,21 +7,35 @@ namespace ApplicationDSP.Controllers
 {
     public class ChartSeriesColleague : Colleague
     {
-        private readonly SignalController _controller;
         private readonly Series _series;
 
 
-        public ChartSeriesColleague( Mediator mediator, Series series, SignalController controller )
+        public ChartSeriesColleague( SignalMediator mediator, Series series )
             : base( mediator )
         {
             _series = series;
-            _controller = controller;
         }
 
 
         public void Notify( Signal signal )
         {
-            _controller.UpdateSeries( signal, _series );
+            UpdateSeries( signal );
+        }
+
+
+        private void UpdateSeries( Signal signal )
+        {
+            double[] pointsArray = signal.ToArray;
+            double df = signal.Df;
+
+            DataPointCollection pointCollection = _series.Points;
+            pointCollection.SuspendUpdates();
+            pointCollection.Clear();
+            for ( int i = 0; i < pointsArray.Length; i += pointsArray.Length / 300 )
+            {
+                pointCollection.AddXY( i * df, pointsArray[i] );
+            }
+            pointCollection.ResumeUpdates();
         }
     }
 }

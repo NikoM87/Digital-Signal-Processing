@@ -2,10 +2,10 @@
 {
     public abstract class Colleague
     {
-        protected readonly Mediator Mediator;
+        protected readonly SignalMediator Mediator;
 
 
-        protected Colleague( Mediator mediator )
+        protected Colleague( SignalMediator mediator )
         {
             Mediator = mediator;
         }

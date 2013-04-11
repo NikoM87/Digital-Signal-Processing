@@ -1,33 +1,50 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections;
+using System.Windows.Forms;
 
 
 namespace ApplicationDSP.Controllers
 {
     public class ComboBoxColleague : Colleague
     {
-        private readonly ComboBox _comboBox1;
+        private readonly ComboBox _comboBox;
 
 
-        public ComboBoxColleague( Mediator mediator, ComboBox comboBox1 )
+        public ComboBoxColleague( SignalMediator mediator, ComboBox comboBox )
             : base( mediator )
         {
-            _comboBox1 = comboBox1;
+            _comboBox = comboBox;
+            _comboBox.SelectedIndexChanged += Checked;
         }
 
 
-        public void Checked( int selected )
+        public void Checked( object sender, EventArgs e )
         {
-            Mediator.UpdateNumber( selected, this );
+            Mediator.UpdateNumber( this );
         }
 
 
         public int GetNumber()
         {
-            if ( _comboBox1.SelectedItem == null )
+            if ( _comboBox.SelectedItem == null )
             {
                 return -1;
             }
-            return (int) _comboBox1.SelectedItem - 1;
+            return (int) _comboBox.SelectedItem - 1;
+        }
+
+
+        public void UpdateSignalCount( ICollection signal2 )
+        {
+            ComboBox.ObjectCollection items = _comboBox.Items;
+
+            items.Clear();
+            for ( int i = 0; i < signal2.Count; i++ )
+            {
+                items.Add( i + 1 );
+            }
+
+            _comboBox.SelectedIndex = 0;
         }
     }
 }

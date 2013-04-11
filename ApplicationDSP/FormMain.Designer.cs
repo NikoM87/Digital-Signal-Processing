@@ -43,7 +43,6 @@ namespace ApplicationDSP
             this.textBoxLoad1 = new System.Windows.Forms.TextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.textBoxLoad2 = new System.Windows.Forms.TextBox();
             this.buttonLoad2 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -109,10 +108,6 @@ namespace ApplicationDSP
             this.checkedListBox1.TabIndex = 3;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.CheckedListBox1SelectedIndexChanged);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // textBoxLoad2
             // 
             this.textBoxLoad2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -150,7 +145,6 @@ namespace ApplicationDSP
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(28, 21);
             this.comboBox1.TabIndex = 7;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -160,7 +154,6 @@ namespace ApplicationDSP
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(28, 21);
             this.comboBox2.TabIndex = 8;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.ComboBox2SelectedIndexChanged);
             // 
             // FormMain
             // 
@@ -191,7 +184,6 @@ namespace ApplicationDSP
         private System.Windows.Forms.TextBox textBoxLoad1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox textBoxLoad2;
         private System.Windows.Forms.Button buttonLoad2;
         private System.Windows.Forms.Button button2;

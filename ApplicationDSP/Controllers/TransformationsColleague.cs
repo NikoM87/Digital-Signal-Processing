@@ -3,9 +3,9 @@
 
 namespace ApplicationDSP.Controllers
 {
-    public class TransformationsColluegue : Colleague
+    public class TransformationsColleague : Colleague
     {
-        public TransformationsColluegue( Mediator mediator )
+        public TransformationsColleague( SignalMediator mediator )
             : base( mediator )
         {
         }
