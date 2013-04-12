@@ -1,8 +1,8 @@
 ﻿namespace DSP
 {
-    public class Convolution
+    public static class Convolution
     {
-        public double[] Execute( double[] x, double[] h )
+        public static double[] Execute( double[] x, double[] h )
         {
             int n = h.Length;
 

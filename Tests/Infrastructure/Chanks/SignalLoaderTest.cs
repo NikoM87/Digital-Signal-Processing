@@ -38,7 +38,7 @@ namespace Tests.Infrastructure.Chanks
 
             try
             {
-                _loader.LoadHeader();
+                _loader.Load();
                 Assert.Fail();
             }
             catch ( SignatureException )
@@ -57,7 +57,7 @@ namespace Tests.Infrastructure.Chanks
 
             try
             {
-                _loader.LoadHeader();
+                _loader.Load();
                 Assert.Fail();
             }
             catch ( FileVesionException )

@@ -42,7 +42,7 @@ namespace DSP.Infrastructure
         }
 
 
-        public void LoadHeader()
+        private void LoadHeader()
         {
             uint signature = _reader.ReadUInt32();
             if ( signature != SignalSaver.SignatureFile )
