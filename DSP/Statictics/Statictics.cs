@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace DSP.Statictics
 {
-    public class Statictics
+    public static class Statictics
     {
         public static double Correlation( double[] x1, double[] x2 )
         {
@@ -20,14 +22,14 @@ namespace DSP.Statictics
 
         public static double Correlation( int delay, double[] x1, double[] x2 )
         {
-            int length = Math.Min( x1.Length, x2.Length - delay );
+            int length = Math.Min( x1.Length, x2.Length );
 
             double r = 0;
             for ( int i = 0; i < length; i++ )
             {
-                r += x1[i] * x2[i + delay];
+                r += x1[i + delay] * x2[i];
             }
-            r /= length + delay;
+            r /= length;
 
             return r;
         }
@@ -35,14 +37,23 @@ namespace DSP.Statictics
 
         public static double CrossCorrelation( int delay, double[] x1, double[] x2 )
         {
-            int length = Math.Min( x1.Length, x2.Length ) - delay;
+            int length = Math.Min( x1.Length, x2.Length );
 
             double r = Correlation( delay, x1, x2 );
 
-            double x12 = x1.Sum( x => x * x );
-            double x22 = x2.Sum( x => x * x );
+            double x12 = 0;
+            for ( int i = delay; i < length + delay; i++ )
+            {
+                x12 += Math.Pow( x1[i], 2 );
+            }
 
-            double k = 1.0 / ( length + delay ) * Math.Sqrt( x12 * x22 );
+            double x22 = 0;
+            for ( int i = 0; i < length; i ++ )
+            {
+                x22 += Math.Pow( x2[i], 2 );
+            }
+
+            double k = 1.0 / ( length ) * Math.Sqrt( x12 * x22 );
 
             return r / k;
         }
@@ -54,6 +65,11 @@ namespace DSP.Statictics
             mean /= array.Length;
 
             return mean;
+        }
+
+        public static double Rms( double[] x1 )
+        {
+            return x1.Sum( x => x * x ) / x1.Length;
         }
     }
 }
