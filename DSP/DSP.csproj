@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\FastFourierTransformation.cs" />
+    <Compile Include="Complex.cs" />
     <Compile Include="Convolution.cs" />
+    <Compile Include="Algorithms\Direction.cs" />
     <Compile Include="Infrastructure\Chanks\Writer\ArrayChankWriter.cs" />
     <Compile Include="Infrastructure\Chanks\Chank.cs" />
     <Compile Include="Infrastructure\Chanks\ArrayChank.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Transformation\ITransformation.cs" />
     <Compile Include="Transformation\Transformations.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
